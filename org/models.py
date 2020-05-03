@@ -66,7 +66,7 @@ class DonationCenter(models.Model):
     def _get_city(self):
         geolocator = Nominatim(user_agent="ayudapy")
         cordstr = "%s, %s" % self.location.coords[::-1]
-        location = geolocator.reverse(cordstr, language="es")
+        location = geolocator.reverse(cordstr, language="id")
         city = ""
         if location.raw.get("address"):
             if location.raw["address"].get("city"):
@@ -120,7 +120,7 @@ class Profile(models.Model):
     def _get_city(self):
         geolocator = Nominatim(user_agent="ayudapy")
         cordstr = "%s, %s" % self.location.coords[::-1]
-        location = geolocator.reverse(cordstr, language="es")
+        location = geolocator.reverse(cordstr, language="id")
         city = ""
         if location.raw.get("address"):
             if location.raw["address"].get("city"):

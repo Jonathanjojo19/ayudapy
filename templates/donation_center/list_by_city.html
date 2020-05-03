@@ -9,24 +9,24 @@
             <span class="icon is-small">
             <i class="fas fa-home" aria-hidden="true"></i>
             </span>
-            <a href="/">Inicio</a>
+            <a href="/">Halaman Depan</a>
         </li>
-        <li><a href="/donar">Info donar</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Centros de donación</a></li>
+        <li><a href="/donar">Info Donasi</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Pusat Donasi</a></li>
       </ul>
   </nav>
 {% endblock bread %}
 
 {% block content%}
 <div class="title center">
-  Centros de donación en {{city}}
+  Pusat donasi {{city}}
 </div>
 <div class="subtitle center">
     <a href="/donaciones"> (ver todos)</a>
 </div>
 {% if not list_donations %}
 <div class="notification is-warning center is-size-5">
-  Todavía no hay centros de donación, volvé en un rato
+  Tidak ada pusat donasi
 </div>
 {% endif %}
     <div class="columns is-centered">
@@ -46,7 +46,7 @@
       <div class="column is-6">
         <div class="panel is-info">
           <p class="panel-heading">
-            Centros de donación en {{city}}
+            Pusat donasi {{city}}
           </p>
           <div style="overflow-y:auto;max-height:75vh;padding:15px;">
             {% for donation in list_paginated %}

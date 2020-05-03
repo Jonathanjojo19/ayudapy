@@ -9,11 +9,11 @@
             <span class="icon is-small">
               <i class="fas fa-home" aria-hidden="true"></i>
             </span>
-            <span>Inicio</span>
+            <span>Halaman Depan</span>
           </a>
         </li>
         <li><a href="/recibir">Info</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Recibir ayuda</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Permintaan Bantuan</a></li>
     </ul>
 </nav>
 {% endblock bread %} 
@@ -24,14 +24,14 @@
         <span class="icon is-small">
           <i class="fas fa-location-arrow"></i>
         </span>
-        <span>Apreta acá voy a tratar de encontrarte</span>
+        <span>Klik di sini, kami akan mencoba menemukan Anda</span>
       </button>
       <p id="status"></p>
       <form enctype="multipart/form-data" method="post" action="/solicitar">
         {% csrf_token %}
         {% include 'help_request/post.html' with form=form %}
         <div class="control">
-          <button id="submit" class="button is-success is-fullwidth">Enviar</button>
+          <button id="submit" class="button is-success is-fullwidth">Kirim</button>
         </div>
       </form>
 
@@ -40,7 +40,7 @@
   <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Ayuda con el mapa</p>
+            <p class="modal-card-title">Bantuan </p>
             <button class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
@@ -64,9 +64,9 @@
           const direccion = data.data;
 
           document.getElementById('div_direccion').innerHTML = `
-          <span><b>Calles</b>:${direccion.direccion || ''}</span><br /> 
-          <span><b>Barrio</b>:${direccion.localidad || '' }</span><br /> 
-          <span><b>Ciudad</b>:${direccion.distrito || ''} <span> <span><b>Departamento</b>:${direccion.departamento || ''}</span>`;
+          <span><b>Jalan</b>:${direccion.direccion || ''}</span><br /> 
+          <span><b>Daerah</b>:${direccion.localidad || '' }</span><br /> 
+          <span><b>Kota</b>:${direccion.distrito || ''} <span> <span><b>Departemen</b>:${direccion.departamento || ''}</span>`;
           document.getElementById('id_address').value = `${direccion.direccion || ''} ${direccion.localidad || '' } ${direccion.distrito || ''} ${direccion.departamento || ''}`;
           resolve(true)
         })

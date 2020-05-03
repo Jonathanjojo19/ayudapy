@@ -65,38 +65,38 @@ class FrequentAskedQuestion(models.Model):
 
 class HelpRequest(models.Model):
     title = models.CharField(
-        "Título del pedido",
+        "Judul Permintaan",
         max_length=200,
-        help_text="Descripción corta de qué estás necesitando",
+        help_text="Deskripsi singkat tentang apa yang Anda butuhkan",
         db_index=True,
     )
     message = models.TextField(
-        "Descripción del pedido",
+        "Deskripsi Permintaan",
         help_text=mark_safe(
-            "Acá podés contar detalladamente lo que necesitás, <b>cuanto mejor cuentes tu situación es más probable que te quieran ayudar</b>"),
+            "Di sini Anda dapat memberi tahu secara rinci apa yang Anda butuhkan, <b>semakin detail Anda mendeskripsikan situasi Anda, semakin besar kemungkinan orang ingin membantu Anda.</b>"),
         max_length=2000,
         null=True,
         db_index=True,
     )
-    name = models.CharField("Nombre y Apellido", max_length=200)
-    phone = models.CharField("Teléfono de contacto", max_length=30)
+    name = models.CharField("Nama Lengkap", max_length=200)
+    phone = models.CharField("Telepon", max_length=30)
     address = models.CharField(
-        "Dirección",
-        help_text="Para ayudar a quien quiera ayudarte saber la dirección, ciudad, barrio, referencias, o cómo llegar",
+        "Petunjuk Arah",
+        help_text="Untuk membantu siapa pun yang ingin membantu Anda mengetahui alamat, kota, lingkungan, referensi, atau cara menuju ke sana.",
         max_length=400,
         blank=False,
         null=True,
     )
     location = models.PointField(
-        "Ubicación",
-        help_text=mark_safe('<p style="margin-bottom:5px;font-size:10px;">Seleccioná tu ubicación para que la gente pueda encontrarte, si no querés marcar tu casa una buena opción puede ser la comisaría más cercana o algún otro sitio público cercano.\
-            <br>Si tenés problemas con este paso <a href="#" class="is-link modal-button" data-target="#myModal" aria-haspopup="true">mirá esta ayuda</a></p><p id="div_direccion" style="font-size: 10px; margin-bottom: 5px;"></p>'),
+        "Lokasi",
+        help_text=mark_safe('<p style="margin-bottom:5px;font-size:10px;">Pilih lokasi Anda sehingga orang dapat menemukan Anda. Jika tidak ingin menandai rumah Anda, Anda bisa menandai  kantor polisi terdekat atau tempat umum terdekat lainnya.\
+            <br>Jika Anda memiliki masalah dengan langkah ini, lihat <a href="#" class="is-link modal-button" data-target="#myModal" aria-haspopup="true">bantuan ini</a></p><p id="div_direccion" style="font-size: 10px; margin-bottom: 5px;"></p>'),
         srid=4326,
     )
     picture = models.ImageField(
         "Foto",
         upload_to=rename_img,
-        help_text="Si querés podés adjuntar una foto relacionada con tu pedido, es opcional pero puede ayudar a que la gente entienda mejor tu situación",
+        help_text="Jika mau, Anda dapat melampirkan foto yang terkait dengan permintaan bantuan Anda. Anda tidak wajib melakukannya tetapi ini akan memudahkan orang lain memahami situasi Anda",
         null=True,
         blank=True,
     )
@@ -122,7 +122,7 @@ class HelpRequest(models.Model):
         cordstr = "%s, %s" % self.location.coords[::-1]
         city = ''
         try:
-            location = geolocator.reverse(cordstr, language='es')
+            location = geolocator.reverse(cordstr, language='id')
             if location.raw.get('address'):
                 if location.raw['address'].get('city'):
                     city = location.raw['address']['city']

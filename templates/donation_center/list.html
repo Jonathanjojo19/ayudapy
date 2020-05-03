@@ -12,18 +12,18 @@
                 <span class="icon is-small">
                     <i class="fas fa-home" aria-hidden="true"></i>
                 </span>
-                <span>Inicio</span>
+                <span>Halaman Depan</span>
             </a>
         </li>
-        <li><a href="/donar">Info donar</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Centros de donación</a></li>
+        <li><a href="/donar">Info Donasi</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Pusat Donasi</a></li>
     </ul>
 </nav>
 {% endblock bread %}
 
 {% block content%}
 <div class="title center">
-    Centros de donación cercanos {{donation_center.id}}
+    Pusat Donasi {{donation_center.id}}
     <div id="loading-indicator" class="loader-wrapper">
         <div class="loader is-loading"></div>
     </div>
@@ -40,9 +40,9 @@
                                     <div class="control">
                                         <div class="select is-small">
                                             <input name="cities" class="input is-small" list="list_donation_cities"
-                                                placeholder="Seleccionar ciudad..." autocomplete="off">
+                                                placeholder="Pilih kota..." autocomplete="off">
                                         </div>
-                                        <p class="help has-text-info"> Si no ves tu ciudad es porque no hay centros de donación</p>
+                                        <p class="help has-text-info">Jika Anda tidak melihat kota Anda di sini, ini karena tidak ada pusat donasi di sekitar Anda.</p>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
         <button id="find-me" class="button is-success  is-outlined is-fullwidth"><span class="icon is-small">
                 <i class="fas fa-location-arrow"></i>
             </span>
-            <span>Mi ubicación</span>
+            <span>Lokasi saya</span>
         </button>
         <p id="status"></p>
     </div>
@@ -81,11 +81,11 @@
                 <div class="field has-addons">
                     <div class="control is-expanded">
                         <input id="search-text-field" class="input is-small" type="text" name="search-text-field"
-                            placeholder="Búsqueda por nombre, Ejemplo: Cruz Roja">
+                            placeholder="Cari nama kota">
                     </div>
                     <div class="control">
                         <button class="button is-warning is-small" id="search-button">
-                            Buscar
+                            Cari
                         </button>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
 
         <div class="panel is-info">
             <p class="panel-heading">
-                Centros de donación
+                Pusat donasi
             </p>
             <div style="overflow-y:auto;max-height:75vh;padding:15px;">
                 <div id="table">
@@ -136,7 +136,7 @@
 <script type="text/template" id="table-empty-template">
       {% verbatim %}
 	<div class="media">
-	    <h1>No se encuentran centros de donación en la ubicación actual.</h1>
+	    <h1>Tidak ada pusat donasi di sekitar Anda.</h1>
 	</div>
       {% endverbatim %}
     </script>
@@ -145,7 +145,7 @@
         {% verbatim %}
           <div class="row table-paginator">
               <div class="column is-5">
-                Mostrando &lt; Página {{currentPage}} de {{totalPages}} &gt;
+                Tampilkan &lt; Halaman {{currentPage}} dari {{totalPages}} &gt;
             </div>
             <nav class="pagination is-right" role="navigation" aria-label="pagination">
                 <button class="pagination-previous prev-button" {{hasPrev}}>Previo</button>

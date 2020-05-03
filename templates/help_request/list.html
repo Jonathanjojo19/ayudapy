@@ -12,18 +12,18 @@
             <span class="icon is-small">
               <i class="fas fa-home" aria-hidden="true"></i>
             </span>
-            <span>Inicio</span>
+            <span>Halaman Depan</span>
           </a>
         </li>
         <li><a href="/dar">Info</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Pedidos de ayuda</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Permintaan Bantuan</a></li>
       </ul>
   </nav>
 {% endblock bread %}
 
 {% block content%}
 <div class="title center">
-  Pedidos cercanos {{help_request.id}}
+  Permintaan Bantuan {{help_request.id}}
   <div id="loading-indicator" class="loader-wrapper">
     <div class="loader is-loading"></div>
   </div>
@@ -39,9 +39,9 @@
                     <div class="field">
                       <div class="control">
                         <div class="select is-small">
-                          <input name="cities" class="input is-small" list="list_cities" placeholder="Seleccionar ciudad..." autocomplete="off">
+                          <input name="cities" class="input is-small" list="list_cities" placeholder="Pilih kota..." autocomplete="off">
                         </div>
-                          <p class="help has-text-info"> Si no ves tu ciudad es porque no hay pedidos!</p>
+                          <p class="help has-text-info"> Jika Anda tidak melihat kota Anda di sini, ini karena tidak ada permintaan di kota Anda</p>
                       </div>
                     </div>
                   </div>
@@ -67,7 +67,7 @@
 	<button id="find-me" class="button is-success  is-outlined is-fullwidth"><span class="icon is-small">
 	    <i class="fas fa-location-arrow"></i>
 	  </span>
-	  <span>Mi ubicación</span>
+	  <span>Lokasi saya</span>
 	</button>
 	<p id="status"></p>
       </div>
@@ -84,12 +84,12 @@
 		class="input is-small"
 		type="text"
 		name="search-text-field"
-		placeholder="Búsqueda por título o descripción, Ejemplo: Pañal"
+		placeholder="Cari berdasarkan nama atau deskripsi, contoh: obat"
 	      >
 	    </div>
 	    <div class="control" >
 	      <button class="button is-warning is-small" id="search-button">
-		Buscar
+          Cari
 	      </button>
 	    </div>
           </div>
@@ -100,7 +100,7 @@
 
         <div class="panel is-info">
           <p class="panel-heading">
-            Últimos pedidos de ayuda
+            Permintaan bantuan terakhir
           </p>
           <div style="overflow-y:auto;max-height:75vh;padding:15px;">
 	    <div id="table">
@@ -143,7 +143,7 @@
     <script type="text/template" id="table-empty-template">
       {% verbatim %}
 	<div class="media">
-	    <h1>No se encuentran pedidos de ayuda en la ubicación actual.</h1>
+	    <h1>Tidak ada permintaan bantuan pada lokasi ini</h1>
 	</div>
       {% endverbatim %}
     </script>
@@ -152,11 +152,11 @@
           {% verbatim %}
         	<div class="row table-paginator">
         	    <div class="column is-5">
-        		  Mostrando &lt; Página {{currentPage}} de {{totalPages}} &gt;
+        		  Tampilkan &lt; Halaman {{currentPage}} dari {{totalPages}} &gt;
               </div>
               <nav class="pagination is-right" role="navigation" aria-label="pagination">
-                  <button class="pagination-previous prev-button" {{hasPrev}}>Previo</button>
-                  <button class="pagination-next next-button" {{hasNext}}>Siguiente</button>
+                  <button class="pagination-previous prev-button" {{hasPrev}}>Sebelumnya</button>
+                  <button class="pagination-next next-button" {{hasNext}}>Selanjutnya</button>
 
                   <ul class="pagination-list">
                       <li><button class="pagination-link first-button {{showFirst}}" {{hasFirst}}>1</button></li>
