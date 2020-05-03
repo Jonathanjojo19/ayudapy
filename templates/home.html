@@ -5,7 +5,7 @@
     {% if not perms.org.add_donationcenter %}
         <div class="columns is-centered">
             <div class="column is-3">
-                <a href="/recibir">
+                <a href="/permintaan">
                     <article class="tile is-child notification has-text-centered"
                         style="background-color: #ffb852; color: white;">
                         <p class="title is-4">Saya Butuh Bantuan</p>
@@ -14,7 +14,7 @@
                 </a>
             </div>
             <div class="column is-3">
-                <a href="/dar">
+                <a href="/bantu">
                     <article class="tile is-child notification has-text-centered"
                         style="background-color: #4cd36f; color: white;">
                         <p class="title is-4">Saya Ingin Membantu</p>
@@ -25,7 +25,7 @@
         </div>
         <div class="columns is-centered">
            <div class="column is-3">
-                <a href="/donaciones">
+                <a href="/daftar-donasi">
                     <article class="tile is-child notification has-text-centered" style="background-color: #6e6bd1; color: white;">
                         <p class="title is-4">Pusat Donasi</p>
                         <p class="subtitle is-6 is-size-7">Lihat apa saja dan di mana Anda bisa ikut menyumbang</p>
@@ -33,7 +33,7 @@
                 </a>
             </div>
             <div class="column is-3">
-                <a href="/voluntario/legal">
+                <a href="/relawan/ketentuan">
                     <article class="tile is-child notification has-text-centered" style="background-color: #f95d82; color: white;">
                         <p class="title is-4">Saya Ingin Menjadi Relawan</p>
                         <p class="subtitle is-size-7">Bantu bantunusantara.org dan jadi relawan</p>
@@ -44,28 +44,28 @@
         {% else %}
         <div class="columns is-centered">
             <div class="column is-4">
-                <a href="/dar">
+                <a href="/bantu">
                     <article class="tile is-child notification has-text-centered"
                         style="background-color: #4cd36f; color: white;">
-                        <p class="title is-4">¡Quiero ayudar!</p>
-                        <p class="subtitle is-6 is-size-7">Encontrá a alguien cerca tuyo para ayudar</p>
+                        <p class="title is-4">Saya Ingin Membantu</p>
+                        <p class="subtitle is-6 is-size-7">Temukan seseorang di dekatmu yang membutuhkan bantuan</p>
                     </article>
                 </a>
             </div>
             <div class="column is-4">
-                <a href="/donaciones">
+                <a href="/daftar-donasi">
                     <article class="tile is-child notification has-text-centered" style="background-color: #6e6bd1; color: white;">
                         <p class="title is-4">Pusat Donasi Terdekat</p>
-                        <p class="subtitle is-6 is-size-7">Mirá lo que podés donar y dónde</p>
+                        <p class="subtitle is-6 is-size-7">Lihat apa saja dan di mana Anda bisa ikut menyumbang</p>
                     </article>
                 </a>
             </div>
             <div class="column is-4">
-                <a href="/donar">
+                <a href="/donasi">
                     <article class="tile is-child notification has-text-centered"
                         style="background-color: #f95d82; color: white;">
-                        <p class="title is-4">¡Registrar Centro!</p>
-                        <p class="subtitle is-6 is-size-7">Registrá un Centro de Donación</p>
+                        <p class="title is-4">Pusat Kontrol Pendaftaran</p>
+                        <p class="subtitle is-6 is-size-7">Buat pusat donasi</p>
                     </article>
                 </a>
             </div>

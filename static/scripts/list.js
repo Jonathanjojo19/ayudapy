@@ -1,9 +1,9 @@
 // script to support the templates/help_request/list.html file
 (function () {
   var GEO_URL = "/api/v1/helprequestsgeo/";
-  var LIST_URL = "/pedidos/";
-  var LIST_BY_CITY_URL = "/pedidos_ciudad/";
-  var TITLE = "Pedido";
+  var LIST_URL = "/daftar-permintaan/";
+  var LIST_BY_CITY_URL = "/daftar-permintaan-kota/";
+  var TITLE = "Daftar Permintaan";
   var ICON_URL = "/static/icons/marker-icon-2x-green.png";
   
   /**
@@ -31,8 +31,8 @@
     map.addControl(
       new L.Control.Fullscreen({
         title: {
-          false: 'Ver en Pantalla Completa',
-          true: 'Salir de Pantalla Completa',
+          false: 'Masuk Mode Layar Penuh',
+          true: 'Keluar Mode Layar Penuh',
         },
       })
     );
@@ -124,21 +124,21 @@
       you = L.marker([latitude, longitude], {
         opacity: 0.8,
         icon: greenIcon,
-        title: 'Tu ubicación',
+        title: 'Lokasi Anda',
       }).addTo(maps[0]);
-      you.bindPopup('<b>Tu ubicación</b>').openPopup();
+      you.bindPopup('<b>Lokasi Anda</b>').openPopup();
       maps[0].panTo(new L.LatLng(latitude, longitude), 14);
-      status.textContent = 'Mostrando tu localización actual';
+      status.textContent = 'Lokasi Anda sekarang';
     }
 
     function error() {
-      status.textContent = 'No puedo encontrarte, usá los botones del mapa';
+      status.textContent = 'Kami tidak dapat mendeteksi lokasi Anda, gunakan peta dibawah secara manual';
     }
 
     if (!navigator.geolocation) {
-      status.textContent = 'Tu navegador no soporta la geolocalización';
+      status.textContent = 'Browser Anda tidak mendukung pencarian lokasi';
     } else {
-      status.textContent = 'Buscando tu ubicación…';
+      status.textContent = 'Mencari lokasi Anda…';
       navigator.geolocation.getCurrentPosition(success, error);
     }
   }
@@ -193,7 +193,7 @@
           feature.properties.pk +
           '"><h1>'+ TITLE +' #' +
           feature.properties.pk +
-          '</h1></a><p class="has-text-weight-bold">Nombre: ' +
+          '</h1></a><p class="has-text-weight-bold">Permintaan: ' +
           feature.properties.name +
           '</p><p>' +
           feature.properties.title +
@@ -219,7 +219,7 @@
           feature.properties.pk +
           '"><h1>'+ TITLE +' #' +
           feature.properties.pk +
-          '</h1></a><p class="has-text-weight-bold">Nombre: ' +
+          '</h1></a><p class="has-text-weight-bold">Permintaan: ' +
           feature.properties.name +
           '</p><p>' +
           feature.properties.title +

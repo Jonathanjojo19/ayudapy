@@ -19,8 +19,8 @@
                 <span>Halaman Depan</span>
             </a>
         </li>
-        <li><a href="/donar">Info Donasi</a></li>
-        <li><a href="/donaciones">Pusat Donasi</a></li>
+        <li><a href="/donasi">Info Donasi</a></li>
+        <li><a href="/daftar-donasi">Pusat Donasi</a></li>
         <li class="is-active"><a href="#" aria-current="page">Pusat Donasi #{{donation_center.id}}</a></li>
     </ul>
 </nav>
@@ -28,7 +28,7 @@
 {% block content%}
 <div class="columns is-centered">
     <div class="subtitle center is-3">
-        <a class="has-text-primary" href="/donaciones/{{donation_center.id}}">Pusat Donasi #{{donation_center.id}}</a>
+        <a class="has-text-primary" href="/daftar-donasi/{{donation_center.id}}">Pusat Donasi #{{donation_center.id}}</a>
     </div>
 </div>
 <div class="columns is-centered">
@@ -67,7 +67,7 @@
                 {% endif %}
                 <p class="subtitle">Kota: </p>
                 <p class="title is-4">
-                    <a href="/donaciones_ciudad/{{donation_center.city_code}}">{{donation_center.city}}</a>
+                    <a href="/daftar-donasi-kota/{{donation_center.city_code}}">{{donation_center.city}}</a>
                 </p>
                 <p class="subtitle">Lokasi:
                     {% leaflet_map "main" callback="main_map_init" %}
@@ -113,7 +113,7 @@
         <hr>
         <label class="label has-text-success">
             <span class="icon is-medium"><i class="fas fa-hand-point-down"></i></span>
-            Sebarkan donasi ini
+            Bagikan donasi ini
         </label>
         <div class="is-fullwidth">
             {% include 'includes/share_buttons.html'%}

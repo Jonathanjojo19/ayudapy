@@ -51,7 +51,7 @@ def request_form(request):
                 # ignore if we can't set the help_request_ownser
                 print(str(e))
 
-            messages.success(request, "¡Se creó tu pedido exitosamente!")
+            messages.success(request, "Permintaan tercatat")
             return redirect("pedidos-detail", id=new_help_request.id)
     else:
         form = HelpRequestForm()
@@ -75,7 +75,7 @@ def view_request(request, id):
         "phone_number_img": image_to_base64(text_to_image(help_request.phone, 300, 50)),
         "whatsapp": '595'+help_request.phone[1:]+'?text=Hola+'+help_request.name
                     + ',+te+escribo+por+el+pedido+que+hiciste:+'+quote_plus(help_request.title)
-                    + '+https:'+'/'+'/'+'ayudapy.org/pedidos/'+help_request.id.__str__(),
+                    + '+https:'+'/'+'/'+'bantunusantara.org/daftar-permintaan/'+help_request.id.__str__(),
         "active_requests": active_requests,
     }
     if request.POST:

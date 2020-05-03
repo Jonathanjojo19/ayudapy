@@ -11,22 +11,22 @@
             </span>
             <a href="/">Halaman Depan</a>
         </li>
-        <li><a href="/dar">Info Bantuan</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Pedidos de ayuda</a></li>
+        <li><a href="/bantu">Info Bantuan</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Daftar Permintaan Bantuan</a></li>
       </ul>
   </nav>
 {% endblock bread %}
 
 {% block content%}
 <div class="title center">
-  Pedidos en {{city}}
+  Permintaan di {{city}}
 </div>
 <div class="subtitle center">
-    <a href="/pedidos"> (ver todos)</a>
+    <a href="/daftar-permintaan"> (lihat semua)</a>
 </div>
 {% if not list_help %}
 <div class="notification is-warning center is-size-5">
-  Todavía no hay pedidos de ayuda, volvé en un rato
+  Tidak ada permintaan
 </div>
 {% endif %}
     <div class="columns is-centered">
@@ -35,7 +35,7 @@
         <div style="margin-bottom: .75em; ">
           <div class="field">
             <input id="switchNormal" type="checkbox" onclick="groupMarkerRequest()" name="switchNormal" class="switch">
-            <label for="switchNormal">Agrupar pedidos</label>
+            <label for="switchNormal">Group Permintaan</label>
           </div>
         </div>
         <!-- End Switch clustering -->
@@ -46,12 +46,12 @@
       <div class="column is-6">
         <div class="panel is-info">
           <p class="panel-heading">
-            Últimos pedidos de ayuda en {{city}}
+            Permintaan bantuan terakhir di {{city}}
           </p>
           <div style="overflow-y:auto;max-height:75vh;padding:15px;">
             {% for pedido in list_paginated %}
               <div class="media">
-                <a href="/pedidos/{{pedido.id}}" class="has-text-grey-dark" title="{{pedido.added}}">
+                <a href="/daftar-permintaan/{{pedido.id}}" class="has-text-grey-dark" title="{{pedido.added}}">
                   <div class="media-content">
                     <div class="content">
                       <p>
@@ -107,8 +107,8 @@
           map.setMaxZoom(17)
           map.addControl(new L.Control.Fullscreen({
             title: {
-              'false': 'Ver en Pantalla Completa',
-              'true': 'Salir de Pantalla Completa'
+              false: 'Masuk Mode Layar Penuh',
+              true: 'Keluar Mode Layar Penuh',
             }
           }));
 
@@ -126,9 +126,9 @@
         var markerClusters = L.markerClusterGroup();
         var layerGroup = L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
-            var popup = '<a class="subtitle" href="/pedidos/' + feature.properties.pk + '"><h1>Pedido #' + feature.properties.pk +
-              '</h1></a><p class="has-text-weight-bold">Nombre: ' + feature.properties.name + '</p><p>' + feature.properties.title + '</p>' +
-              '<a class="is-size-6" href="/pedidos/' + feature.properties.pk + '">Ver Pedido</a>';
+            var popup = '<a class="subtitle" href="/daftar-permintaan/' + feature.properties.pk + '"><h1>Permintaan #' + feature.properties.pk +
+              '</h1></a><p class="has-text-weight-bold">Permintaan: ' + feature.properties.name + '</p><p>' + feature.properties.title + '</p>' +
+              '<a class="is-size-6" href="/daftar-permintaan/' + feature.properties.pk + '">Lihat Permintaan</a>';
             layer.bindPopup(popup);
 
             markerClusters.addLayer(layer);
@@ -142,9 +142,9 @@
         console.log("loadMarkers");
         var layerGroup = L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
-            var popup = '<a class="subtitle" href="/pedidos/' + feature.properties.pk + '"><h1>Pedido #' + feature.properties.pk +
-              '</h1></a><p class="has-text-weight-bold">Nombre: ' + feature.properties.name + '</p><p>' + feature.properties.title + '</p>' +
-              '<a class="is-size-6" href="/pedidos/' + feature.properties.pk + '">Ver Pedido</a>';
+            var popup = '<a class="subtitle" href="/daftar-permintaan/' + feature.properties.pk + '"><h1>Permintaan #' + feature.properties.pk +
+              '</h1></a><p class="has-text-weight-bold">Permintaan: ' + feature.properties.name + '</p><p>' + feature.properties.title + '</p>' +
+              '<a class="is-size-6" href="/daftar-permintaan/' + feature.properties.pk + '">Lihat Permintaan</a>';
             layer.bindPopup(popup);
           }
         }).addTo(map);

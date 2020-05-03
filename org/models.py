@@ -36,19 +36,19 @@ class Organization(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Organización"
-        verbose_name = "Organizaciones"
+        verbose_name = "Organisasi"
+        verbose_name_plural = "Organisasi"
 
 # Donation Center represents an establishment where the user with needs could go to 
 # receive some help.
 
 class DonationCenter(models.Model):
-    name = models.CharField("Nombre del lugar", max_length=200)
-    phone = models.CharField("Teléfono de contacto", max_length=30, blank=True, null=True)
-    location = models.PointField("Ubicación", srid=4326,)
+    name = models.CharField("Nama", max_length=200)
+    phone = models.CharField("Telepon", max_length=30, blank=True, null=True)
+    location = models.PointField("Lokasi", srid=4326,)
     address = models.CharField(
-        "Dirección",
-        help_text="Dirección, ciudad, barrio, referencias, o cómo llegar",
+        "Petunjuk Arah",
+        help_text="Alamat, Kota, Referensi Lokasi, Panduan Arah",
         max_length=400,
         blank=False,
         null=True,
@@ -90,8 +90,8 @@ class DonationCenter(models.Model):
         return f"<Centro #{self.id} - {self.name}> - {self.city}"
 
     class Meta:
-        verbose_name = "Centro de Donación"
-        verbose_name_plural = "Centros de Donación"
+        verbose_name = "Pusat Donasi"
+        verbose_name_plural = "Pusat Donasi"
 
 
 # Profile a model to represents volunteers.
@@ -143,7 +143,8 @@ class Profile(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Voluntario"
+        verbose_name = "Relawan"
+        verbose_name_plural = "Relawan"
 
 
 # @receiver(post_save, sender=User)

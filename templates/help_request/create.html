@@ -12,7 +12,7 @@
             <span>Halaman Depan</span>
           </a>
         </li>
-        <li><a href="/recibir">Info</a></li>
+        <li><a href="/permintaan">Info</a></li>
         <li class="is-active"><a href="#" aria-current="page">Permintaan Bantuan</a></li>
     </ul>
 </nav>
@@ -27,7 +27,7 @@
         <span>Klik di sini, kami akan mencoba menemukan Anda</span>
       </button>
       <p id="status"></p>
-      <form enctype="multipart/form-data" method="post" action="/solicitar">
+      <form enctype="multipart/form-data" method="post" action="/daftar">
         {% csrf_token %}
         {% include 'help_request/post.html' with form=form %}
         <div class="control">

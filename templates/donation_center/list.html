@@ -15,7 +15,7 @@
                 <span>Halaman Depan</span>
             </a>
         </li>
-        <li><a href="/donar">Info Donasi</a></li>
+        <li><a href="/donasi">Info Donasi</a></li>
         <li class="is-active"><a href="#" aria-current="page">Pusat Donasi</a></li>
     </ul>
 </nav>
@@ -118,7 +118,7 @@
 <script type="text/template" id="table-template">
       {% verbatim %}
 	<div class="media">
-	    <a href="/donaciones/{{id}}" class="has-text-grey-dark" title="{{added}}">
+	    <a href="/daftar-donasi/{{id}}" class="has-text-grey-dark" title="{{added}}">
 	      <div class="media-content">
 		<div class="content">
 		  <p>
@@ -145,11 +145,11 @@
         {% verbatim %}
           <div class="row table-paginator">
               <div class="column is-5">
-                Tampilkan &lt; Halaman {{currentPage}} dari {{totalPages}} &gt;
+                Menampilkan &lt; Halaman {{currentPage}} dari {{totalPages}} &gt;
             </div>
             <nav class="pagination is-right" role="navigation" aria-label="pagination">
-                <button class="pagination-previous prev-button" {{hasPrev}}>Previo</button>
-                <button class="pagination-next next-button" {{hasNext}}>Siguiente</button>
+                <button class="pagination-previous prev-button" {{hasPrev}}>Sebelumnya</button>
+                <button class="pagination-next next-button" {{hasNext}}>Selanjutnya</button>
 
                 <ul class="pagination-list">
                     <li><button class="pagination-link first-button {{showFirst}}" {{hasFirst}}>1</button></li>

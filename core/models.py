@@ -35,6 +35,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        verbose_name = "Kategori"
+        verbose_name_plural = "Kategori"
 
 # FrequentAskedQuestion: model ...
 
@@ -57,6 +61,9 @@ class FrequentAskedQuestion(models.Model):
 
         # default "ORDER BY" statement
         ordering = ["order"]
+
+        verbose_name = "Pertanyaan"
+        verbose_name_plural = "Pertanyaan"
 
     def __str__(self):
         return self.question
@@ -148,7 +155,11 @@ class HelpRequest(models.Model):
         return super(HelpRequest, self).save(*args, **kwargs)
 
     def __str__(self):
-        return f"<Pedido #{self.id} - {self.name}>"
+        return f"<Permintaan #{self.id} - {self.name}>"
+
+    class Meta:
+        verbose_name = "Permintaan"
+        verbose_name_plural = "Permintaan"
 
 
 @receiver(post_save, sender=HelpRequest)

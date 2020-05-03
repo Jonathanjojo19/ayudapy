@@ -39,7 +39,7 @@ def create_thumbnail(imagepath: str, basewidth: int, force=False) -> bool:
 
 
 def rename_img(instance, filename):  # TODO: Use f'strings' instead of % format
-    path = "pedidos/"
+    path = "daftar-permintaan/"
     filename = filename.replace(" ", "_")
     if not instance.phone:
         format = time.strftime("%Y%m%d%H%M", time.localtime()) + "-" + filename

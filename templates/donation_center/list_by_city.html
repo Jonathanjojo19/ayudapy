@@ -11,7 +11,7 @@
             </span>
             <a href="/">Halaman Depan</a>
         </li>
-        <li><a href="/donar">Info Donasi</a></li>
+        <li><a href="/donasi">Info Donasi</a></li>
         <li class="is-active"><a href="#" aria-current="page">Pusat Donasi</a></li>
       </ul>
   </nav>
@@ -22,7 +22,7 @@
   Pusat donasi {{city}}
 </div>
 <div class="subtitle center">
-    <a href="/donaciones"> (ver todos)</a>
+    <a href="/daftar-donasi"> (lihat semua)</a>
 </div>
 {% if not list_donations %}
 <div class="notification is-warning center is-size-5">
@@ -51,7 +51,7 @@
           <div style="overflow-y:auto;max-height:75vh;padding:15px;">
             {% for donation in list_paginated %}
               <div class="media">
-                <a href="/donaciones/{{donation.id}}" class="has-text-grey-dark" title="{{donation.added}}">
+                <a href="/daftar-donasi/{{donation.id}}" class="has-text-grey-dark" title="{{donation.added}}">
                   <div class="media-content">
                     <div class="content">
                       <p>
@@ -105,8 +105,8 @@
           map.setMaxZoom(17)
           map.addControl(new L.Control.Fullscreen({
             title: {
-              'false': 'Ver en Pantalla Completa',
-              'true': 'Salir de Pantalla Completa'
+              false: 'Masuk Mode Layar Penuh',
+              true: 'Keluar Mode Layar Penuh',
             }
           }));
 
@@ -124,9 +124,9 @@
         var markerClusters = L.markerClusterGroup();
         var layerGroup = L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
-            var popup = '<a class="subtitle" href="/donaciones/' + feature.properties.pk + '"><h1>Donación #' + feature.properties.pk +
-              '</h1></a><p class="has-text-weight-bold">Nombre: ' + feature.properties.name + '</p>' +
-              '<a class="is-size-6" href="/donaciones/' + feature.properties.pk + '">Ver Donación</a>';
+            var popup = '<a class="subtitle" href="/daftar-donasi/' + feature.properties.pk + '"><h1>Donasi #' + feature.properties.pk +
+              '</h1></a><p class="has-text-weight-bold">Permintaan: ' + feature.properties.name + '</p>' +
+              '<a class="is-size-6" href="/daftar-donasi/' + feature.properties.pk + '">Lihat Donasi</a>';
             layer.bindPopup(popup);
 
             markerClusters.addLayer(layer);
@@ -140,9 +140,9 @@
         console.log("loadMarkers");
         var layerGroup = L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
-            var popup = '<a class="subtitle" href="/donaciones/' + feature.properties.pk + '"><h1>Donación #' + feature.properties.pk +
-              '</h1></a><p class="has-text-weight-bold">Nombre: ' + feature.properties.name + '</p><p>' +
-              '<a class="is-size-6" href="/donaciones/' + feature.properties.pk + '">Ver Donación</a>';
+            var popup = '<a class="subtitle" href="/daftar-donasi/' + feature.properties.pk + '"><h1>Donasi #' + feature.properties.pk +
+              '</h1></a><p class="has-text-weight-bold">Permintaan: ' + feature.properties.name + '</p><p>' +
+              '<a class="is-size-6" href="/daftar-donasi/' + feature.properties.pk + '">Lihat Donasi</a>';
             layer.bindPopup(popup);
           }
         }).addTo(map);
